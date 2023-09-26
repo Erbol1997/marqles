@@ -1,80 +1,128 @@
 .header {
-  background-color: white;
-  padding: 15px 0;
-  box-shadow: 0 3px 10px 0 rgb(0 0 0 / 3%);
-
+  -webkit-box-shadow: 0px 4px 4px 0px rgba(34, 60, 80, 0.25);
+  -moz-box-shadow: 0px 4px 4px 0px rgba(34, 60, 80, 0.25);
+  box-shadow: 0px 4px 4px 0px rgba(34, 60, 80, 0.25);
+  height: 100px;
   &-container {
-    max-width: 2000px;
-    width: 100%;
-    margin: 0 auto;
-
+    height: 100%;
     .header-row {
-      @include flexbox;
-
-      .header-left {
-        @include flexbox;
-
-        .header-logo {
-          width: 300px;
-          padding-right: 50px;
-
-          img {
-            width: 100%;
-            height: auto;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      .logo {
+        display: flex;
+        height: 100%;
+        width: 226px;
+        padding-right: 57px;
+        position: relative;
+        &:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          height: 100%;
+          border-right: 1px solid #bbbbbb;
+        }
+        img {
+          width: 100%;
+        }
+      }
+      .nav_block {
+        display: flex;
+        justify-content: space-between;
+        height: 100%;
+        align-items: center;
+        width: 100%;
+        .links_block {
+          padding-left: 21px;
+          .links_list {
+            display: flex;
+            gap: 52px;
+            .link_item {
+              a {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                img {
+                  height: 36px;
+                  width: 36px;
+                }
+                span {
+                  font-size: 20px;
+                  font-weight: 400;
+                  line-height: 23px;
+                }
+              }
+            }
           }
         }
-
-        .header-inner-row {
-          @include flexbox;
-
-          .header-inner-links {
-            padding: 10px 35px;
-
-            .header-inner-link {
-              @include fontTextStyle;
-              text-transform: uppercase;
-              transition: all 0.2s;
-            }
-
-            .header-inner-link:hover {
-              color: $button-color;
+        .user-block {
+          height: 100%;
+          .user_links {
+            display: flex;
+            height: 100%;
+            .user_link-item {
+              padding: 0px 30px;
+              display: flex;
+              align-items: center;
+              cursor: pointer;
+              border-left: 1px solid #bbbbbb;
+              &:last-child {
+                border-right: none;
+              }
+              img {
+                height: 36px;
+                width: 36px;
+              }
             }
           }
         }
       }
+    }
+  }
+}
 
-      .header-right {
-        @include flexbox;
-        column-gap: 20px;
-
-        .header-mobile-links {
-          @include flexbox;
-          flex-direction: column;
-          row-gap: 5px;
-
-          .header-mobile-link {
-            @include fontTextStyle;
-            font-size: 20px;
-          }
+@media (max-width: 1150px) {
+  .header {
+    height: 44px;
+    .header-container {
+      .header-row {
+        .logo {
+          width: 82px;
+          min-width: 82px;
         }
-
-        .header-callback-row {
-          @include flexbox;
-          flex-direction: column;
-          row-gap: 5px;
-
-          .request-call {
-            @include btnStyle;
-            padding: 11px 20px;
+        .nav_block {
+          .links_block {
+            .links_list {
+              .link_item {
+                border-left: 1px solid #bbbbbb;
+                &:not(:first-child) span {
+                  display: none;
+                }
+                a {
+                  img {
+                    width: 18px;
+                    height: 18px;
+                  }
+                  span {
+                    font-size: 9px;
+                    line-height: 9px;
+                  }
+                }
+              }
+            }
           }
-
-          .request-call:hover {
-            @include btnStyleHover;
-          }
-
-          .whatsapp-request {
-            @include fontTextStyle;
-            font-weight: 400;
+          .user-block {
+            .user_links {
+              .user_link-item {
+                a {
+                  img {
+                    width: 18px;
+                    height: 18px;
+                  }
+                }
+              }
+            }
           }
         }
       }

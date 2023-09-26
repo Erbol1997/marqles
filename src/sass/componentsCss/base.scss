@@ -1,27 +1,34 @@
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
+}
+
+// Inter = 300 400 600 700  Roboto Flex = 400 600 700
+
+.second_font {
+  font-family: $font-family-title;
+}
+
+.container {
+  max-width: 1870px;
+  padding: 0px 10px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 body {
   font-family: $font-family-text;
   font-size: 16px;
+  font-weight: 400;
 }
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
+ul,
 li {
   list-style: none;
-}
-
-.request-call {
-  @include btnStyle;
-  padding: 11px 20px;
-}
-
-.request-call:hover {
-  @include btnStyleHover;
 }
